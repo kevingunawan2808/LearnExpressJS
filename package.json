@@ -1,0 +1,36 @@
+{
+  "name": "learnexpressjs",
+  "version": "1.0.0",
+  "description": "learn express jes",
+  "main": "server.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=env",
+    "start": "nodemon --exec npm run babel-node -- ./server.js",
+    "build": "babel src -d dist",
+    "dev": "webpack && npm start"
+  },
+  "author": "kevin",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "webpack": "^3.5.6",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.19.1"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.2",
+    "body-parser": "^1.18.0",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^7.4.3",
+    "morgan": "^1.8.2",
+    "mysql": "^2.14.1",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.8.2"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
