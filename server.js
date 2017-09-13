@@ -9,6 +9,7 @@ const DIST_DIR = path.join(__dirname, "dist"),
     app = express()
 
 const users = require('./app/Routes/UserRoutes')
+const transactions = require('./app/Routes/TransactionRoutes')
 
 app.use(express.static(DIST_DIR))
 app.use(bodyParser.json())
@@ -23,8 +24,8 @@ app.use((req, res, next)=>{
 	      	if (err) {
 	        	return res.json({ status: "error", message: 'Failed to authenticate token.' })
 	    	}else {
-		        req.decoded = decoded;    
-		        next();
+		        req.decoded = decoded
+		        next()
 	    	}
 	    })
 	}else {
@@ -36,9 +37,7 @@ app.use((req, res, next)=>{
    	}
 })
 
-app.get("/index",(req,res)=>{
-	res.send("hello world!")
-})
+app.use("/transaction",transactions)
 
 app.use((req, res, next)=> {
 	var err = new Error('Not Found');
